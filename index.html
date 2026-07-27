@@ -110,9 +110,9 @@
       <div class="card">
         <h2 id="formHeading">New scripture</h2>
         <div class="note">
-          <b>Leave the date empty</b> → saved to the archive, visible in the app now, no notification.<br>
-          <b>Pick a date</b> → it's sent automatically as a push that morning (6 AM). Prepare a whole week or month ahead.<br>
-          Or use <b>Send now</b> on any item below to push it immediately.
+          <b>Leave the date empty</b> → saves a draft only (not shown in the app yet).<br>
+          <b>Pick a date</b> → it will be sent automatically as a push at 5 AM (IST) on that day.<br>
+          Or use <b>Send now</b> on an item below to publish it immediately.
         </div>
 
         <label>Title</label>
@@ -324,7 +324,7 @@ async function loadList() {
       let chip;
       if (v.sent) chip = '<span class="chip chip-green">✓ Sent</span>';
       else if (future) chip = `<span class="chip chip-orange">⏰ ${scheduled.toLocaleDateString()}</span>`;
-      else chip = '<span class="chip chip-grey">In archive</span>';
+      else chip = '<span class="chip chip-grey">Saved (not sent)</span>';
 
       const el = document.createElement('div');
       el.className = 'item' + (v.sent ? ' sent' : (future ? ' sched' : ''));
