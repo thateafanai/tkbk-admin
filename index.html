@@ -112,7 +112,7 @@
         <div class="note">
           <b>Leave the date empty</b> → saves a draft only (not shown in the app yet).<br>
           <b>Pick a date</b> → it will be sent automatically as a push at 5 AM (IST) on that day.<br>
-          Or use <b>Send now</b> on an item below to publish it immediately.
+          <b>Send now</b> overrides the schedule and publishes immediately.
         </div>
 
         <label>Title</label>
@@ -352,7 +352,7 @@ async function loadList() {
 }
 
 async function sendNow(id) {
-  if (!confirm('Send this scripture as a push notification to everyone right now?')) return;
+  if (!confirm('Send this scripture to everyone now? This will override any future schedule and publish immediately.')) return;
   setStatus('Sending push…', '');
   try {
     await sendNowFn({ scriptureId: id });
